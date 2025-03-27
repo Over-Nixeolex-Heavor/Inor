@@ -20,8 +20,12 @@ local GUI = Mercury:Create{
     Link = "https://github/inor/com"
 }
 local Tab = GUI:Tab{
+	Name = "Universal",
+	Icon = "rbxassetid://8569322835"
+}
+local Tab = GUI:Tab{
 	Name = "Sword Duel Simulator",
-	Icon = "rbxassetid://109348837163929"
+	Icon = "rbxassetid://8569322835"
 }
 Tab:Button{
 	Name = "Delete power show",
@@ -44,6 +48,11 @@ Tab:Button{
 	Name = "Teleport to givers sword(rebirths need)",
 	Description = nil,
 	Callback = function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5062.2876, 1118.70703, -8683.1875, -0.658802092, 0.0820137933, -0.747832537, -7.67526217e-07, 0.994040012, 0.109015703, 0.752316296, 0.0718203485, -0.654875576) end
+}
+Tab:Button{
+	Name = "Save Place",
+	Description = nil,
+	Callback = function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5222.08496, 1093.1394, -8889.03027, -0.0899422988, -1.09727614e-08, 0.995947003, 1.04498508e-08, 1, 1.19611236e-08, -0.995947003, 1.14833085e-08, -0.0899422988) end
 }
 GUI:Credit{
 	Name = "Credits by Nixeolex",
