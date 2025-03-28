@@ -85,7 +85,7 @@ Tab:Button{
 Tab:Button{
 	Name = "Save Place",
 	Description = nil,
-	Callback = function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5222.08496, 1093.1394, -8889.03027, -0.0899422988, -1.09727614e-08, 0.995947003, 1.04498508e-08, 1, 1.19611236e-08, -0.995947003, 1.14833085e-08, -0.0899422988) end
+	Callback = function() local p=Instance.new("Part",workspace);p.Size=Vector3.new(99,10,99);p.CFrame=CFrame.new(0,1e3,0);p.Anchored=true;p.Transparency=0.4;p.Material=Enum.Material.Glass;game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=p.CFrame+Vector3.new(0,10,0)   end
 }
 Tab:Button{
 	Name = "Anti-afk(no work)",
