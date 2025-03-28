@@ -1,11 +1,34 @@
-print("load")
-print("checking version")
-print("version 0.001")
-print("start")
---[[ soon website and blacklist
+--[[ soon auto farming
 version: 0.001
-support: all mobile exploits and jjsploit xeno velocity zorara solara and private exploits
+support: all mobile exploits and jjsploit xeno velocity zorara solara swift and private exploits
 ]]--
+local function LoadingDelay(seconds)  
+    for i = 1, seconds do  
+        print("Loading: " .. i .. "/" .. seconds)  
+        task.wait(1)  
+    end  
+end  
+
+LoadingDelay(5) -- Задержка 5 секунд  
+print("checking version")
+
+
+
+
+
+
+
+
+
+
+
+
+print("version 0.004")
+
+
+
+
+
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 local GUI = Mercury:Create{
     Name = "Inor",
@@ -18,6 +41,15 @@ local GUI = Mercury:Create{
     Size = UDim2.fromOffset(600, 400),
     Theme = Mercury.Themes.Dark,
     Link = "https://github/inor/com"
+}
+local Tab = GUI:Tab{
+	Name = "Information",
+	Icon = "rbxassetid://8569322835"
+}
+Tab:Button{
+	Name = "Inor | hub soon get update now version 0.004",
+	Description = nil,
+	Callback = function() end
 }
 local Tab = GUI:Tab{
 	Name = "Universal",
@@ -39,6 +71,7 @@ Tab:Slider{
 	Max = 70,
 	Callback = function(value) game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value end
 }
+
 Tab:Button{
 	Name = "Teleport to King OF Hill",
 	Description = nil,
@@ -53,6 +86,11 @@ Tab:Button{
 	Name = "Save Place",
 	Description = nil,
 	Callback = function() game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5222.08496, 1093.1394, -8889.03027, -0.0899422988, -1.09727614e-08, 0.995947003, 1.04498508e-08, 1, 1.19611236e-08, -0.995947003, 1.14833085e-08, -0.0899422988) end
+}
+Tab:Button{
+	Name = "Anti-afk(no work)",
+	Description = nil,
+	Callback = function() end
 }
 GUI:Credit{
 	Name = "Credits by Nixeolex",
