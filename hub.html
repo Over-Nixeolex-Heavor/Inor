@@ -3,26 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inor | Hub </title>
-    <link rel="icon" type="image/png" href="Inor.png">  
-    <link rel="icon" type="image/svg+xml" href="Inor.svg"> 
-    <meta name="theme-color" content="##0F60F7"> <!-- HEX-код цвета -->  
-    <meta property="og:type" content="Inor | Hub - new script for more place">  
-    <meta property="og:title" content="testing and updating">  
-    <meta property="og:image" content="inor.png">  
+    <title>Inor | Hub</title>
+    <meta name="description" content="Inor Hub - modern tool for Roblox with advanced features">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="Inor.png">
+    <link rel="icon" type="image/svg+xml" href="Inor.svg">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Inor | Hub - Best Hub For Roblox">
+    <meta property="og:image" content="https://yourdomain.com/inor.png">
+    <meta property="og:description" content="Inor Hub provides advanced tools for Roblox with support for PC and mobile devices">
+    <meta name="theme-color" content="#0F60F7">
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto+Mono:wght@300;400&display=swap" rel="stylesheet">
+    
     <style>
-    // Запуск системы частиц после загрузки страницы
-    window.addEventListener('load', createInteractiveParticles);
         /* Базовые стили */
+        :root {
+            --main-color: #0F60F7;
+            --dark-bg: #0A192F;
+            --accent: #00FFEF;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #0A192F;
+            background: var(--dark-bg);
             color: #FFFFFF;
             font-family: 'Roboto Mono', monospace;
             line-height: 1.6;
@@ -38,67 +52,88 @@
             padding: 1.5rem 5%;
             backdrop-filter: blur(10px);
             z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
-            background: linear-gradient(45deg, #00FFEF, #00BEBE);
+            background: linear-gradient(45deg, var(--accent), #00BEBE);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .nav-links {
-            float: right;
+            display: flex;
+            gap: 2rem;
         }
 
         .nav-links a {
             color: #8892B0;
             text-decoration: none;
-            margin-left: 2rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: #00FFEF;
+            color: var(--accent);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Герой секция */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 10%;
+            padding: 7rem 10% 0;
             position: relative;
         }
 
         .hero-content {
             max-width: 600px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 2rem;
             line-height: 1.2;
         }
 
         .cta-btn {
-            background: linear-gradient(45deg, #00FFEF, #00BEBE);
+            background: linear-gradient(45deg, var(--accent), #00BEBE);
             border: none;
             padding: 1rem 2.5rem;
-            color: #0A192F;
+            color: var(--dark-bg);
             font-family: 'Orbitron', sans-serif;
             cursor: pointer;
             border-radius: 5px;
+            transition: 0.3s;
             position: relative;
             overflow: hidden;
-            transition: 0.3s;
         }
 
         .cta-btn:hover {
-            box-shadow: 0 0 20px rgba(0, 255, 239, 0.4);
             transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 239, 0.4);
         }
 
         /* Секция технологий */
@@ -108,7 +143,7 @@
 
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -118,6 +153,7 @@
             padding: 2rem;
             border-radius: 5px;
             transition: 0.3s;
+            text-align: center;
         }
 
         .tech-card:hover {
@@ -128,40 +164,40 @@
         .tech-icon {
             font-size: 3rem;
             margin-bottom: 1rem;
-            color: #00FFEF;
+            color: var(--accent);
         }
 
         /* Футер */
         footer {
-            background: linear-gradient(to bottom, #0A192F, #020C1B);
+            background: linear-gradient(to bottom, var(--dark-bg), #020C1B);
             padding: 4rem 10%;
             margin-top: 5rem;
         }
 
         .contact-info {
-            border-left: 3px solid #00FFEF;
+            border-left: 3px solid var(--accent);
             padding-left: 2rem;
-            font-family: 'Roboto Mono', monospace;
         }
 
-        /* Анимации */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .contact-info a {
+            color: var(--accent);
+            text-decoration: none;
         }
 
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            background: rgba(0, 255, 239, 0.5);
-            border-radius: 50%;
-            animation: float 3s infinite;
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding-top: 10rem;
+                text-align: center;
+            }
+            
+            .tech-card {
+                padding: 1.5rem;
+            }
         }
     </style>
 </head>
@@ -171,68 +207,67 @@
         <span class="logo">Inor</span>
         <div class="nav-links">
             <a href="#home">Home</a>
-            <a href="#tech">advantages</a>
-            <a href="#projects">idk</a>
-            <a href="#contact">Concants</a>
+            <a href="#tech">Advantages</a>
+            <a href="#projects">Functions</a>
+            <a href="#contact">Contacts</a>
         </div>
     </nav>
 
     <!-- Главный экран -->
     <section class="hero" id="home">
-        <div class="particles" id="particles"></div>
         <div class="hero-content">
-            <h1>Inor - good hub for roblox</h1>
+            <h1>Inor - good Hub for roblox</h1>
             <button class="cta-btn">Start using</button>
         </div>
     </section>
 
     <!-- Секция технологий -->
     <section class="technologies" id="tech">
-        <h2>advantages</h2>
+        <h2>Our advantages</h2>
         <div class="tech-grid">
             <div class="tech-card">
-                <div class="tech-icon">💻</div>
-                <h3>Good functions</h3>
-                <p>Inor | Hub have more and good functions</p>
+                <div class="tech-icon">🚀</div>
+                <h3>Unique Features</h3>
+                <p>Exclusive opportunities for professional players</p>
             </div>
             <div class="tech-card">
                 <div class="tech-icon">⚡</div>
-                <h3>Fast updates</h3>
-                <p>Inor | Hub updragind with fast speed</p>
+                <h3>Instant updates</h3>
+                <p>Automatic update without reboot</p>
             </div>
             <div class="tech-card">
                 <div class="tech-icon">📱</div>
-                <h3>Supporting</h3>
-                <p>Phone and Pc</p>
+                <h3>Cross-platform</h3>
+                <p>Full support for PC and mobile devices</p>
             </div>
         </div>
     </section>
 
     <!-- Футер -->
-    <footer>
+    <footer id="contact">
         <div class="contact-info">
-            <h3>Сoncants</h3>
-            <p>Discord: esterkor</p>
-            <p>Discord server: https://discord.gg/VAcNvky8rj</p>
+            <h3>Contacts</h3>
+            <p>Discord: <a href="https://discord.gg/VAcNvky8rj">esterkor</a></p>
+            <p>Discord server: <a href="mailto:support@inorhub.com"> gg/VAcNvky8rj</a></p>
         </div>
     </footer>
 
     <script>
-        // Генерация анимированных частиц
-        function createParticles() {
-            const particles = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.width = particle.style.height = 
-                    Math.random() * 3 + 1 + 'px';
-                particle.style.animationDelay = Math.random() * 2 + 's';
-                particles.appendChild(particle);
-            }
-        }
-        createParticles();
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Анимация при загрузке
+        window.addEventListener('load', () => {
+            document.querySelector('.hero-content').style.opacity = '1';
+            document.querySelector('.hero-content').style.transform = 'translateY(0)';
+        });
     </script>
 </body>
 </html>
