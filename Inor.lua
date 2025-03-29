@@ -1,5 +1,5 @@
 --[[ soon auto farming
-version: 0.001
+version: 0.005
 support: all mobile exploits and jjsploit xeno velocity zorara solara swift and private exploits
 ]]--
 local function LoadingDelay(seconds)  
@@ -10,8 +10,6 @@ local function LoadingDelay(seconds)
 end  
 
 LoadingDelay(10) -- Задержка 5 секунд  
-print("checking version")
-print("version 0.005")
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 local GUI = Mercury:Create{
     Name = "Inor",
