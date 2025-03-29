@@ -4,31 +4,14 @@ support: all mobile exploits and jjsploit xeno velocity zorara solara swift and 
 ]]--
 local function LoadingDelay(seconds)  
     for i = 1, seconds do  
-        print("Loading: " .. i .. "/" .. seconds)  
+        print("Loading: " .. i .. "/" .. scripts)  
         task.wait(1)  
     end  
 end  
 
-LoadingDelay(5) -- Задержка 5 секунд  
+LoadingDelay(10) -- Задержка 5 секунд  
 print("checking version")
-
-
-
-
-
-
-
-
-
-
-
-
-print("version 0.004")
-
-
-
-
-
+print("version 0.005")
 local Mercury = loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
 local GUI = Mercury:Create{
     Name = "Inor",
@@ -85,7 +68,7 @@ Tab:Button{
 Tab:Button{
 	Name = "Save Place",
 	Description = nil,
-	Callback = function() local p=Instance.new("Part",workspace);p.Size=Vector3.new(99,10,99);p.CFrame=CFrame.new(0,1e3,0);p.Anchored=true;p.Transparency=0.4;p.Material=Enum.Material.Glass;game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=p.CFrame+Vector3.new(0,10,0)   end
+	Callback = function() local p=Instance.new("Part",workspace);p.Size=Vector3.new(99,10,99);p.CFrame=CFrame.new(0,1e3,0);p.Anchored=true;p.Transparency=0.4;p.Material=Enum.Material.Plastic;game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=p.CFrame+Vector3.new(0,10,0)   end
 }
 Tab:Button{
 	Name = "Anti-afk(no work)",
